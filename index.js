@@ -6,7 +6,7 @@ const COMPANY_ACCOUNT_SELECTOR = 'body > div.modal.modal-list > div > div > div.
 const TOTAL_PORTFOLIO_VALUE_SELECTOR = 'div.wallet-table__row div.text--semibold.flex-justify--end';
 const LAST_PRICE_PORTFOLIO_VALUE_SELECTOR = '#js-main-view > div:nth-child(6) > section > div > div.wallet-table.width-1 > div.wallet-table__row.padding-top--xxl.hidden-xs.hidden-sm.grid-align-items--end > div.wallet-table__col.grid__col-4-6.text--semibold.flex-justify--end';
 
-const getMonetaryValue = value => value.replace(/EUR|\,|\s/g, '');
+const getMonetaryValue = value => value.replace(/EUR|,|\s/g, '');
 
 (async () => {
   const { browser, page } = await browserHelper.setup();
@@ -27,7 +27,7 @@ const getMonetaryValue = value => value.replace(/EUR|\,|\s/g, '');
   const connection = await db.getConnection();
   await db.insertPortfolioValue(connection, {
     value: lastPricePortfolioValue,
-    initial_investment: portfolioValue
+    initial_investment: portfolioValue,
   });
   process.exit(0);
 })();
