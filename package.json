@@ -1,0 +1,27 @@
+{
+  "name": "investments-tracker-funderbeam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Martko/investments-tracker-funderbeam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Martko/investments-tracker-funderbeam/issues"
+  },
+  "homepage": "https://github.com/Martko/investments-tracker-funderbeam#readme",
+  "dependencies": {
+    "mysql2": "^1.6.5",
+    "puppeteer": "^1.14.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0"
+  }
+}
