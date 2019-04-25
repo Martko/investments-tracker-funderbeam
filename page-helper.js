@@ -1,12 +1,9 @@
 /**
-*
-* @param {Page} page
-* @param {string} selector
-*/
-const getElementContent = async (page, selector) => page.evaluate(
-  el => el.textContent,
-  await page.$(selector),
-);
+ * @param {Page} page
+ * @param {string} selector
+ */
+const getElementContent = async (page, selector) =>
+  page.evaluate((el) => el.textContent, await page.$(selector));
 
 /**
  * Log in via web interface
