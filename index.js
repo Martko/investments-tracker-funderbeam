@@ -5,9 +5,9 @@ const browserHelper = require('./browser-helper');
 const COMPANY_ACCOUNT_SELECTOR =
   'body > div.modal.modal-list > div > div > div.modal-body.cards.text-left > div:nth-child(4)';
 const TOTAL_PORTFOLIO_VALUE_SELECTOR =
-  'div.wallet-table__row div.text--semibold.flex-justify--end';
+  '#js-main-view > div:nth-child(6) > section > div > div.wallet-table.width-1 > div.wallet-table__row.assets--totals.grid-align-items--end > div.wallet-table__col.grid__col-2-4.text--semibold.flex-justify--end.th-investments-total';
 const LAST_PRICE_PORTFOLIO_VALUE_SELECTOR =
-  '#js-main-view > div:nth-child(6) > section > div > div.wallet-table.width-1 > div.wallet-table__row.padding-top--xxl.hidden-xs.hidden-sm.grid-align-items--end > div.wallet-table__col.grid__col-4-6.text--semibold.flex-justify--end';
+  '#js-main-view > div:nth-child(6) > section > div > div.wallet-table.width-1 > div.wallet-table__row.assets--totals.grid-align-items--end > div.wallet-table__col.grid__col-4-6.text--semibold.flex-justify--end.th-investments-value';
 
 const getMonetaryValue = (value) => value.replace(/EUR|,|\s/g, '');
 
