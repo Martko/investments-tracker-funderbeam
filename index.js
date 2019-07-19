@@ -5,9 +5,9 @@ const browserHelper = require('./browser-helper');
 const COMPANY_ACCOUNT_SELECTOR =
   'body > div.modal.modal-list > div > div > div.modal-body.cards.text-left > div:nth-child(4)';
 const TOTAL_PORTFOLIO_VALUE_SELECTOR =
-  '#js-main-view > div:nth-child(6) > section > div > div.wallet-table.width-1 > div.wallet-table__row.assets--totals.grid-align-items--end > div.wallet-table__col.grid__col-2-4.text--semibold.flex-justify--end.th-investments-total';
+  'div.wallet-table__col.grid__col-2-4.text--semibold.flex-justify--end.th-investments-total';
 const LAST_PRICE_PORTFOLIO_VALUE_SELECTOR =
-  '#js-main-view > div:nth-child(6) > section > div > div.wallet-table.width-1 > div.wallet-table__row.assets--totals.grid-align-items--end > div.wallet-table__col.grid__col-4-6.text--semibold.flex-justify--end.th-investments-value';
+  'div.wallet-table__col.grid__col-4-6.text--semibold.flex-justify--end.th-investments-value';
 
 const getMonetaryValue = (value) => value.replace(/EUR|,|\s/g, '');
 
@@ -19,6 +19,7 @@ const getMonetaryValue = (value) => value.replace(/EUR|,|\s/g, '');
     await page.waitForSelector('.modal-dialog');
     await page.click(COMPANY_ACCOUNT_SELECTOR);
     await page.waitForSelector('.wallet--assets');
+    await page.waitForSelector(TOTAL_PORTFOLIO_VALUE_SELECTOR);
 
     const portfolioValue = getMonetaryValue(
       await pageHelper.getElementContent(page, TOTAL_PORTFOLIO_VALUE_SELECTOR),

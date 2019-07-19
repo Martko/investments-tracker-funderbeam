@@ -3,7 +3,16 @@
  * @param {string} selector
  */
 const getElementContent = async (page, selector) =>
-  page.evaluate((el) => el.textContent, await page.$(selector));
+  page.evaluate(
+    (el, sel) => {
+      if (el === null) {
+        throw new Error(`element '${sel}' cannot be found`);
+      }
+      return el.textContent;
+    },
+    await page.$(selector),
+    selector,
+  );
 
 /**
  * Log in via web interface
