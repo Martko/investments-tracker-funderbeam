@@ -5,9 +5,9 @@ const browserHelper = require('./browser-helper');
 const COMPANY_ACCOUNT_SELECTOR =
   'body > div.modal.modal-list > div > div > div.modal-body.cards.text-left > div:nth-child(4)';
 const TOTAL_PORTFOLIO_VALUE_SELECTOR =
-  'div.wallet-table__col.grid__col-2-4.text--semibold.flex-justify--end.th-investments-total';
+  '#js-main-view > section > div.box-fill--gray.padding-around--m > div > div:nth-child(10)';
 const LAST_PRICE_PORTFOLIO_VALUE_SELECTOR =
-  'div.wallet-table__col.grid__col-4-6.text--semibold.flex-justify--end.th-investments-value';
+  '#js-main-view > section > div.box-fill--gray.padding-around--m > div > div:nth-child(12)';
 
 const getMonetaryValue = (value) => value.replace(/EUR|,|\s/g, '');
 
@@ -18,7 +18,8 @@ const getMonetaryValue = (value) => value.replace(/EUR|,|\s/g, '');
     await pageHelper.login(page);
     await page.waitForSelector('.modal-dialog');
     await page.click(COMPANY_ACCOUNT_SELECTOR);
-    await page.waitForSelector('.wallet--assets');
+    await page.waitForSelector('.assets-block');
+    await page.goto('https://www.funderbeam.com/portfolio');
     await page.waitForSelector(TOTAL_PORTFOLIO_VALUE_SELECTOR);
 
     const portfolioValue = getMonetaryValue(
